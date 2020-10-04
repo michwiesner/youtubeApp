@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 })
 export class YoutubeService {
   private youtubeUrl = 'https://www.googleapis.com/youtube/v3';
-  private apiKey = 'AIzaSyAEpHFUBD_tJTGhUvW4UE4tYxcwZG_1HgI';
+  private apiKey = 'AIzaSyB_DyA5SNz1YVnEmhi7hn6YMgs3lBhf-68';
   private playlist = 'UUw7Bz6EHxlnOoBUBlJZCWCw';
   private nextPageToken = '';
   public loading: boolean;
