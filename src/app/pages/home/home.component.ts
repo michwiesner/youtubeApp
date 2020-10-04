@@ -31,7 +31,6 @@ export class HomeComponent implements OnInit {
   getVideos() {
     this.service.getVideos().subscribe(res => {
       this.videos.push( ...res);
-      console.log(this.videos);
     });
   }
 

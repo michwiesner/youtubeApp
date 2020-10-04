@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { YoutubeResponse } from '../models/youtube.models';
 import { map } from 'rxjs/operators';
+import { environment } from '../../environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })
 export class YoutubeService {
   private youtubeUrl = 'https://www.googleapis.com/youtube/v3';
-  private apiKey = 'AIzaSyB_DyA5SNz1YVnEmhi7hn6YMgs3lBhf-68';
-  private playlist = 'UUw7Bz6EHxlnOoBUBlJZCWCw';
+  private apiKey = environment.apiKey;
+  private playlist = environment.playlist;
   private nextPageToken = '';
   public loading: boolean;
 
