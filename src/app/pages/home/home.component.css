@@ -1,0 +1,5 @@
+/* This only changes this particular animation duration */
+
+.animate__animated.animate__fadeIn {
+    --animate-duration: 2s;
+}
