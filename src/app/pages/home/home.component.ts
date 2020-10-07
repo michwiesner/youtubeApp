@@ -11,6 +11,9 @@ import Swal from 'sweetalert2';
 export class HomeComponent implements OnInit {
 
   videos: Video[] = [];
+  channel: any = {};
+  subscriptions: any = {};
+  loading: boolean;
 
   @HostListener('window:scroll', ['$event'])
     onScroll() {
@@ -25,12 +28,13 @@ export class HomeComponent implements OnInit {
   constructor(private service: YoutubeService) { }
 
   ngOnInit(): void {
-    this.getVideos();
+    this.getChannel();
   }
 
   getVideos() {
     this.service.getVideos().subscribe(res => {
       this.videos.push( ...res);
+      this.loading = false;
     });
   }
 
@@ -57,6 +61,17 @@ export class HomeComponent implements OnInit {
               allowfullscreen>
         </iframe>
       `
+    });
+  }
+
+  getChannel() {
+    this.loading = true;
+    this.service.getChannel().subscribe(channel => {
+      if (channel) {
+        this.channel = channel;
+        this.service.getSubscriber().subscribe(subs => this.subscriptions = subs);
+        this.getVideos();
+      }
     });
   }
 
